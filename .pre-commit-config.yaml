@@ -1,0 +1,22 @@
+---
+repos:
+  ###
+  ### All files
+  ###
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.1.0
+    hooks:
+      - id: end-of-file-fixer
+      - id: pretty-format-json
+        args:
+          - --autofix
+      - id: trailing-whitespace
+
+  - repo: local
+    hooks:
+      - id: check
+        name: runs make check
+        language: system
+        entry: make check
+        pass_filenames: false
+        always_run: true
